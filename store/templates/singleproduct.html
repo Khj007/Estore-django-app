@@ -1,0 +1,75 @@
+{% extends 'base.html' %}
+{% block content %}
+{% load cart %}
+{% load custom_filter %}
+
+<div class="product-details-area pt-100px pb-100px">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6 col-sm-12 col-xs-12 mb-lm-30px mb-md-30px mb-sm-30px">
+                <!-- Swiper -->
+                <div class="swiper-container zoom-top">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <img class="img-responsive m-auto" style="height:500px;" src="{{prod.image.url}}" alt="">
+                            <a class="venobox full-preview" data-gall="myGallery" style="height:500px;" href="{{prod.image}}">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-6 col-sm-12 col-xs-12" data-aos="fade-up" data-aos-delay="200">
+                <div class="product-details-content quickview-content ml-25px">
+                    <h1>{{prod.name}}</h1>
+                    <div class="pricing-meta">
+                        <h3>{{prod.price|currency}}</h3>
+                    </div>
+                    <div class="pro-details-rating-wrap">
+                        <div class="rating-product">
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                            <i class="fa fa-star"></i>
+                        </div>
+                        <span class="read-review"><a class="reviews" href="#">(5 Customer Review)</a></span>
+                    </div>
+                    <p class="mt-30px">{{prod.description}}</p>
+                    <div class="pro-details-categories-info pro-details-same-style d-flex m-0">
+                    </div>
+                    <div class="pro-details-categories-info pro-details-same-style d-flex m-0">
+                        <span>Categories : </span>
+                                <p>{{ prod.category}}</p>
+                    </div>
+                    <!-- <div class="pro-details-quality">
+                        <div class="row no-gutters">
+                            <form action="#" method="post" class="col-2">
+                                {% csrf_token %}
+                                <input hidden type="text" name="product" value="{{product.id}}">
+                                <input hidden type="text" name="remove" value="True">
+                                <input type="submit" value=" - " class="btn btn-block btn-secondary">
+                            </form>
+                            <div class="text-center col"> in cart</div>
+
+                            <form action="#" method="post" class="col-2">
+                                {% csrf_token %}
+                                <input hidden type="text" name="product" value="{{product.id}}">
+                                <input type="submit" value=" + " class="btn btn-block btn-secondary">
+                            </form>
+
+                        </div>
+                        
+                        <form action="/#{{product.id}}" method="post" class="btn-block">
+                            {% csrf_token %}
+                            <input hidden type="text" name="product" value="{{id}}">
+                            <input type="submit" class="btn btn-light border form-control" value="Add to cart">
+                        </form>
+                        
+                    </div> -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+      
+{% endblock %}

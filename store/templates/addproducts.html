@@ -1,0 +1,50 @@
+{% extends 'adminbase.html' %}
+<!-- body -->
+{% block content %}
+
+<div class="container-fluid">
+    <div class="p-4 m-4">
+        <div class="col-lg-12 mt-4 mb-4 mx-auto border rounded p-4 ">
+            <form action="addproduct" method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+                <table>
+                    <div class="mt-4">
+                    <tr>
+                        <td><label>Product name</label></td>
+                        <td><input type="text" name="name" class="form-control"></td>
+                    </tr>
+                    <tr class="me-4">
+                        <td ><label>Product Price</label></td>
+                        <td><input type="number" name="price" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Product Description</label></td>
+                        <td><input type="text" name="description" class="form-control"></td>
+                    </tr>
+                    <tr>
+                        <td><label>Product Category</label></td>
+                        <td><select name="categery" id="category">
+                                <option value="cloths-women">cloths-women</option>
+                                <option value="cloths-men">cloths-men</option>
+                                <option value="vagitables">vagitables</option>
+                            </select></td>
+                    </tr>
+                    <tr>
+                        <td><label>Product Image</label></td>
+                        <td><input type="file" name="image" id="image"></td>
+                    </tr>
+                    <tr>
+                        <td>
+                                <div class="form-group pt-4">
+                                    <input class="btn btn-sm btn-info col-lg-12" type="submit" value="Add Product">
+                                </div>
+                        </td>
+                    </tr>
+                </div>
+                </table>
+            </form>
+        </div>
+    </div>
+</div>
+
+{% endblock content %}
